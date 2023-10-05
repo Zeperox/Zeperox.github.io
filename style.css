@@ -1,45 +1,82 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #313338;
-    color: #f2f3f5;
-    text-align: center;
-    scroll-behavior: smooth;
-    padding-top: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #313338;
+	color: #f2f3f5;
+	text-align: center;
+	scroll-behavior: smooth;
 }
 
-header {
-    margin-top: -15px;
-    position: fixed;
-    z-index: 100;
-    width: 99%
+a {
+	color: #00a8fc;
+	text-decoration: none;
 }
 
-header button {
+a:hover {
+	text-decoration: underline;
+}
+
+div {
+	display: flex;
+	justify-content: center;
+}
+
+.project-list {
+	flex-wrap: wrap;
+}
+
+.item {
+	max-width: 100%;
+	margin: 25px;
+	display: inline-block;
+	transition: transform 0.5s;
+}
+
+.rotate-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Image container */
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.project-image {
+	height: auto;
+	background-color: #36393F;
+	border-radius: 20px;
+    transition: transform 0.5s;
+}
+
+.text-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: #2b2d31;
-    border: #2b2d31;
-    color: #f2f3f5;
-    padding: 10px 24px;
-    cursor: pointer;
-    float: left;
-    width: 33.2%;
-    margin: 1px;
-    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+	border-radius: 20px;
+	transform: rotateY(180deg);
+    transition: transform 0.5s, opacity 0s 0.15s;
+    flex-direction: column;
 }
 
-header button:not(:last-child) {
-    border-right: none;
+.link-group {
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-header:after {
-    content: "";
-    clear: both;
-    display: table;
+.link-group a {
+	margin-left: 10px;
 }
 
-header button:hover {
-    background-color: #35373c;
+.rotate-container:hover .project-image {
+    transform: rotateY(180deg);
 }
 
-main {
-    padding-top: 30px
+.rotate-container:hover .text-overlay {
+    transform: rotateY(0deg);
+	opacity: 1;
 }
